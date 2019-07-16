@@ -1,0 +1,137 @@
+\chapter*{Gabarito}
+
+\section*{Capítulo 1 - Afinal, o que é um robô?}
+
+\section*{Capítulo 2 - Algoritmos e tela LCD}
+
+    \subsection*{1)}
+    
+    \subsection*{2)}
+    
+    \subsection*{3)}
+    
+    \subsection*{4)}
+    
+    \subsection*{5)}
+    
+    \subsection*{Desafio) Perguntar ao professor.}
+
+\section*{Capítulo 3 - Movimentação}
+
+    \subsection*{1)}
+    Letra c.
+    
+    \subsection*{2) (Existe mais de uma solução para este exercício)}
+
+    \begin{minted}{cpp}
+    #include <Sparki.h>
+    void setup ()
+    {
+    }
+    void loop ()
+    {
+        sparki.moveForward(5);
+        sparki.moveRight();
+    }
+    \end{minted}
+    
+    \textsl{Como a distância a ser percorrida pelo robô é equivalente ao lado do quadrado, o valor dentro dos parênteses da função ``sparki.moveForward()'' é 5.}
+    
+    \subsection*{3) (Existe mais de uma solução para este exercício)} 
+    
+    \begin{minted}{cpp}
+    #include <Sparki.h>
+    void setup ()
+    {
+    }
+    void loop ()
+    {
+        sparki.moveForward(500);
+        sparki.moveRight();
+    }
+    \end{minted}
+    
+    \textsl{Como o lado do quadrado passou a ser 5 metros, é necessário transformar esse valor para centímetros antes de escrever dentro dos parênteses da função.}
+    
+    \subsection*{4)}
+    Letra d.
+    
+    \subsection*{5)}
+    %FALTA FAZER A RESPOSTA DESTE EXERCÍCIO
+    
+    \subsection*{Desafio) Perguntar ao professor.}
+    
+\section*{Capítulo 4 - Ultrassom}
+
+    \subsection*{1)}
+    
+    \subsection*{2)}
+    
+    \subsection*{3)}
+    
+    \subsection*{4)}
+    
+    \subsection*{5)}
+    
+    \subsection*{Desafio) Perguntar ao professor.}
+
+\section*{Capítulo 5 - Variáveis}
+
+    \subsection*{1)}
+    
+    \subsection*{2)}
+    
+    \subsection*{3)}
+    
+    \subsection*{4)}
+    
+    \subsection*{5)}
+    
+    \subsection*{Desafio) Perguntar ao professor.}
+
+\section{Capítulo 6 - If e Else}
+
+    \subsection*{1)} Letra b.
+    
+    \subsection*{2) (Existe mais de uma solução para este exercício)}
+    
+    \begin{minted}{cpp}
+    #include <Sparki.h>
+    void setup()
+    {
+        int x = 2042385;
+    }
+    void loop()
+    {
+        sparki.clearLCD();
+        if(!(x % 2)) {
+            sparki.print("O numero e par.");
+        } else {
+            sparki.print("O numero e impar.");
+        }
+        sparki.updateLCD();
+        delay(1000);
+    }
+    \end{minted}
+    
+    \subsection*{3)}
+    
+    \subsection*{4)}
+    
+    \subsection*{5)}
+    
+    \subsection*{Desafio) Perguntar ao professor.}
+
+\section*{Capítulo 7 - Infravermelho}
+
+    \subsection*{1)}
+    
+    \subsection*{2)}
+    
+    \subsection*{3)}
+    
+    \subsection*{4)}
+    
+    \subsection*{5)}
+    
+    \subsection*{Desafio) Perguntar ao professor.}
