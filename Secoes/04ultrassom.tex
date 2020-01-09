@@ -2,16 +2,138 @@
 
 \section*{Introdução}
 
+    No capítulo de ultrassom iremos tratar dos "olhos" do \textit{Sparki}, eles estão presentes na plaquinha azul naquilo que você pode ter considerado como sendo a cabeça dele. Embora à primeira vista os dois "olhos" pareçam câmeras feitas para que o nosso robozinho possua visão, na verdade eles fazem parte de um sensor bem diferente que está mais associado com a audição. 
+    
+    Iremos então entender o que é esse sensor, como ele funciona e como podemos utilizá-lo facilmente de forma que o \textit{Sparki} seja capaz de desviar de obstáculos enquanto anda.
+    
+\section{Sensor Ultrassônico}
+    
+    \begin{figure}[h]
+    \caption{Imagem de um sensor ultrassônico}
+     
+    \centering 
+    \includegraphics[width=3.5cm]{Figuras/ultrassom.jpg}
+    \label{figura:ultrassom.jpeg}
+    \end{figure}
+    
+    O funcionamento do sensor é muito simples, o que muitos podem ter achado se tratar de duas câmeras na verdade são um alto-falante e um microfone. O alto-falante emite uma onda sonora de alta frequência, altas demais para que nós humanos sejamos capazes de escutá-la, essa onda de som é refletida assim que ela vai de encontro a algum objeto e retorna para o microfone.
+    
+    \textit{Mas qual a utilidade em você emitir um som e depois escutá-lo de volta?}
+    
+    A funcionalidade não está no som em sí, mas sim no tempo que demorou para que a onda sonora retornasse para o sensor, essa informação de tempo é então utilizada para calcular a distância do sensor até o objeto que refletiu a onda de volta.
+    
+    O sensor ultrassônico é utilizado para obtermos a distância entre o robô e algum objeto à sua frente, mas claro que nem sempre conseguimos encontrar essa distância como esperado, isso porque tem hora que o objeto não está bem posicionado e ai ele não reflete o som de volta para o microfone, ou então ele absorve todo o som, isso pode acontecer se ele for muito macio.
+    
+    \begin{figure}[h]
+    \caption{O objeto tem que se capaz de refletir a onda de volta para o microfone}
+     
+    \centering 
+    \includegraphics[width=7cm]{Figuras/onda.jpg}
+    \label{figura:onda.jpeg}
+    \end{figure}
+    
+\section{Aplicações no Cotidiano}
+
+    \subsection*{Ultrassonografia}
+        A ultrassonografia, também conhecida por ecografia e ultrassom, é um exame de diagnóstico que serve para visualizar em tempo real qualquer órgão ou tecido do corpo, um uso bastante comum é para observar o desenvolvimento do feto durante a gravidez, aquelas imagens cinzas borradas que ninguém é capaz de compreender nada senão o médico são feitas utilizando o ultrassom.
+        
+    \subsection*{Ecolocalização}
+        Embora não seja utilizada por pessoas normais, a ecolocalização ou biossonar é muito importante na vida de diversos animais como morcegos, golfinhos de baleias, eles são seres capazes de emitir ondas de alta frequência e cronometrar o tempo levado até que eles consigam escutar o seu eco, assim são capazes de conhecer seus arredores mesmo sem a necessidade da visão.
+        
+    \subsection*{Sonares}
+        Sonares são muito utilizados por navios e submarinos para detectar a presença de outros corpos debaixo da água, seu funcionamento é idêntico ao de um biossonar utilizado por uma baleia, por exemplo. Sonares diferem dos radares pois os radares utilizam ondas de rádio para medir a distância.
+        
+\section{Função}
+
+    Para podermos utilizar o sensor ultrassônico presente no \textit{Sparki} tudo o que precisamos fazer é escrever a função \mintinline{cpp}{sparki.ping()} que ela ativará o sensor. Como já dito, o sensor serve para medir a distância, logo quando ativamos ele espera-se que a gente receba algum valor de volta que indique qual é essa distância, a função \mintinline{cpp}{sparki.ping()} então também já faz os cálculos necessários e \textbf{retorna} para a gente o valor da distância em \textbf{centímetros}.
+    \\~\\
+    \textit{A função então nos devolve um valor, mas como que eu vejo isso? Onde que ele vai me falar qual a distância que ele mediu? Ele escreve em algum lugar?}
+    \\~\\
+    AHA! Acabamos de chegar na parte importante desse capítulo, as funções que retornam valores. O \textit{Sparki} irá escrever o valor que o sensor encontrou no local que a gente determinar para isso, mas claro que isso não quer dizer que podemos simplesmente falar para ele escrever a resposta num papel que ele irá fazer (possível, mas o código para isso seria muito grande). Nós é que criamos o local onde ele deve escrever a resposta, mas esse local não pode ser qualquer um, ele tem que ser uma \textbf{variável}, e sempre que criamos uma variável temos que definir também o tipo dela, e como no nosso caso estamos trabalhando apenas com centímetros é mais adequado criar uma variável \textbf{inteira}.
+    
+    O código que mostra como fazemos isso está escrito logo abaixo:
+    
+    \begin{minted}{cpp}
+    #include <Sparki.h>
+    int distancia_em_cm;
+    void setup()
+    {
+    }
+    void loop()
+    {
+    distancia_em_cm = sparki.ping();  
+    delay(300);
+    }
+    \end{minted}
+    
+    Nesse código estamos dizendo que o \textit{Sparki} deve executar a função \mintinline{cpp}{sparki.ping()} e salvar o valor que ela retornar dentro da nossa variável \textit{distancia\underline{\hspace{.1in}}em\underline{\hspace{.1in}}cm}. Agora que temos a nossa distância salva dentro de uma variável, podemos trabalhar com ela livremente para fazermos o que quiser, como fazer ele escrever o valor numa folha de papel.
+    
+    É importante notar a presença da função \mintinline{cpp}{delay()} no código, isso porque o funcionamento do sensor não é tão rápido quanto a velocidade de processamento do nosso robô, então precisamos dar um pequeno intervalo de tempo para que o sensor possa funcionar sem erros.
+    
+\section{Servo motor}
+    
+    Se considerarmos o sensor ultrassônico como sendo a cabeça do robô, é muito útil que tenhamos também um pescoço que sirva para movimentarmos nossa cabeça, e é ai que entra um outro servo motor presente no \textit{Sparki}. Você deve se lembrar da \textbf{garra} apresentada no capítulo de movimentação, assim como o nosso "pescoço", a garra também funciona por meio da ação de um servo motor, mas afinal o que ele é?
+    
+    \begin{figure}[h]
+    \caption{Imagem de um servo motor}
+    
+    \centering 
+    \includegraphics[width=7cm]{Figuras/servo.jpg}
+    \label{figura:servo.jpeg}
+    \end{figure}
+    
+    Um servo motor é um motor que tem a capacidade de girar o seu eixo em ângulos precisos até 90º ou 180º normalmente, sendo que o servo motor no qual o sensor ultrassônico está acoplado é capaz de girar seu eixo em até 180º. Ele é muito útil para movimentar braços robóticos por exemplo, onde não é necessário a realização de voltas completas e a precisão é importante. No nosso caso, utilizamos dele para girar o sensor e assim podermos medir distâncias em outras direções sem ter que utilizar das rodas para girar o robô, infelizmente não temos como fazer o \textit{Sparki} olhar para cima ou para baixo utilizando de um servo motor apenas.
+    
+\subsection{Função}
+
+    Agora que sabemos da existência do servo motor precisamos saber como utilizamos ele, para ativá-lo escrevemos a função \mintinline{cpp}{sparki.servo()}, esta função deve receber um valor de angulação em graus que deve ser quanto que ele deve girar, este valor deve estar entre -90º e 90º (sendo valores negativos para a esquerda e positivos para a direita) e o valor pode ser um número quebrado, isto é, o argumento da função é do tipo \textbf{float}.
+    
+    Para facilitar a nossa vida, a função \mintinline{cpp}{sparki.servo()} já vem com 3 valores predefinidos dos ângulos mais utilizados: SERVO\underline{\hspace{.1in}}LEFT (-90º),  SERVO\underline{\hspace{.1in}}CENTER (0º) e SERVO\underline{\hspace{.1in}}RIGHT (90º), assim tudo o que precisamos fazer é escrever SERVO\underline{\hspace{.1in}}| com o sentido desejado como argumento que o \textit{Sparki} se encarrega de colocar o sensor na posição correta.
+    \\~\\
+    Abaixo temos um código que faz com que o \textit{Sparki} meça a distância dele para os objetos na sua esquerda, frente, direita e diagonais esquerda e direita.
+    \begin{minted}{cpp}
+    #include <Sparki.h>
+    int distancia_esquerda, distancia_direita, distancia_frente,
+    distancia_diagonal_esquerda, distancia_diagonal_direita;
+    void setup()
+    {
+    sparki.servo(SERVO_LEFT);                    //gira para a posição -90º
+    delay(500)
+    distancia_esquerda = sparki.ping();  
+    delay(500);
+    sparki.servo(-45);                           //gira para a posição -45º
+    delay(500)
+    distancia_diagonal_esquerda = sparki.ping();  
+    delay(500);
+    sparki.servo(SERVO_CENTER);                  //gira para a posição 0º
+    delay(500)
+    distancia_frente = sparki.ping();  
+    delay(500);
+    sparki.servo(45);                            //gira para a posição 45º
+    delay(500)
+    distancia_diagonal_direita = sparki.ping();  
+    delay(500);
+    sparki.servo(SERVO_RIGHT);                   //gira para a posição 90º
+    delay(500)
+    distancia_direita = sparki.ping();  
+    delay(500);
+    }
+    void loop()
+    {
+    }
+    \end{minted}    
+    
+
 \section{Exercícios}
 
-\question{}
+    \question{Responda a seguinte pergunta: como que podemos encontrar a medida de distância até um objeto utilizando apenas a informação de tempo que a onda de alta frequência demorou para retornar ao sensor?}
 
-\question{}
+    \question{Com os conhecimentos adquiridos até agora, escreva um pequeno código que mostre a todo momento na tela LCD a distância do \textit{Sparki} até algum objeto que esteja na sua frente.}
 
-\question{}
+    
+    \question{Escreva um código que centre o sensor ultrassônico quando o \textit{Sparki} é ligado e que depois de 3 segundos faça ele ficar balançando o sensor de um lado para o outro.}
+    
+    \question{Escreva um código que faça com que o \textit{Sparki} determine a distância até o objeto logo a sua frente e então ande na direção dele e pare a 7cm de distância do objeto.}
 
-\question{}
 
-\question{}
-
-\challenge{\large{Desafio:}}
+    \challenge{\large{Desafio: Escreva um código onde o \textit{Sparki} gira em até 360º e então mostra na tela LCD as distâncias dos objetos a sua volta nas direções norte, nordeste, leste, sudeste, sul, sudoeste, oeste e noroeste.}}

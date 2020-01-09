@@ -1,33 +1,36 @@
-%     Gráficos e layout ----------------------------------------------------------------------
+% Gráficos e layout
 
 \ifx\pdfmatch\undefined
 \else
     \usepackage[T1]{fontenc}
     \usepackage[utf8]{inputenc}
 \fi
+
 % xetex:
 \ifx\XeTeXinterchartoks\undefined
 \else
     \usepackage{fontspec}
     \defaultfontfeatures{Ligatures=TeX}
 \fi
+
 % luatex:
 \ifx\directlua\undefined
 \else
     \usepackage{fontspec}
 \fi
+
 % End engine-specific settings
 
-%      Fonte --------------------------------------------------------------------------------
+% Fonte
 %\usepackage{lmodern}
 \usepackage{times}
-%     Pacotes adicionados -------------------------------------------------------------------
+
+% Pacotes adicionados
 \usepackage{ae}
-%     Língua e hifenização ------------------------------------------------------------------
+% Língua e hifenização
 \usepackage[portuguese]{babel}
 \usepackage{hyphenat}
-%      Outros --------------------------------------------------------------------------------
-\usepackage{hyperref} % Permite Links personalisados usando hyperref
+\usepackage{hyperref} % Permite Links personalizados
 \usepackage{fancyhdr}
 \usepackage{sectsty}
 \usepackage{float}   % Gerencia melhor o posicionamento das figuras e tabelas
@@ -49,9 +52,11 @@
 \usepackage{indentfirst}  % Para indentar o primeiro parágrafo de cada seção
 \usepackage{titling}  % Permite Montar uma página de titulo própria
 \usepackage{tcolorbox} % Caixas Coloridas com Bordas =D
+\usepackage{multicol} % Permite colocar textos e imagens lado a lado
 
-% Layout do documento ------------------------------------------------------------------------
-%     Bordas e tamanho da página ------------------------------------------------------------
+% Layout do documento
+
+% Bordas e tamanho da página
 \usepackage{geometry} 
  \geometry{ % Padrõa ABNT para relatórios
  a4paper,
@@ -60,7 +65,8 @@
  top=30mm,
  bottom=20mm
  }
-%     Cabeçalho e Rodapé ---------------------------------------------------------------
+
+% Cabeçalho e Rodapé
 \pagestyle{fancy} % https://www.sharelatex.com/learn/Headers_and_footers
   \lhead{}
   \chead{}
@@ -68,14 +74,19 @@
   \lfoot{}
   \cfoot{}
   \rfoot{\thepage} % rodapé margem direita
-%     Númeração ------------------------------------------------------------------------
+
+% Numeração
   \pagenumbering{arabic}
-%     Retas do cabeçalho e rodapé ------------------------------------------------------
+
+% Retas do cabeçalho e rodapé
   \renewcommand{\headrulewidth}{0.5pt}
   \renewcommand{\footrulewidth}{0.5pt}
-%     Tamanho da letra de seções e derivadas --------------------------------------------
-  \sectionfont{\normalsize}
-  \subsectionfont{\small}
+
+% Tamanho da letra
+    \chapterfont{\huge}
+    \sectionfont{\Large}
+    \subsectionfont{\large}
+
 % Hiperlinks
 \hypersetup{
     colorlinks,
@@ -133,3 +144,9 @@
 #1
 \end{chalengebox}}
 \newcommand{\FNada}[1]{#1}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+% permite que o comando \underline{\hspace{.1in}} escreva um underline
+
+\usepackage[document]{ragged2e}

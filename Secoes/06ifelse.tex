@@ -122,10 +122,10 @@
     #include <Sparki.h>
     void setup()
     {
-        int x = 2042385;
     }
     void loop()
     {
+        int x = 2042385;
         sparki.clearLCD();
         if(x % 2) {
             sparki.print("O numero e impar.");
@@ -150,10 +150,10 @@
     #include <Sparki.h>
     void setup()
     {
-        int x = 2042385;
     }
     void loop()
     {
+        int x = 2042385;
         sparki.clearLCD();
         if((x % 3) == 0) {
             sparki.println("O numero e divisivel por 3.");
@@ -178,11 +178,11 @@
     #include <Sparki.h>
     void setup()
     {
-        int x = 10;
-        int y = 100;
     }
     void loop()
     {
+        int x = 10;
+        int y = 100;
         sparki.clearLCD();
         if(x >= y) {
             sparki.print("Condicao 1");
@@ -309,12 +309,12 @@
     #include <Sparki.h>
     void setup()
     {
-    int idade_enzo = 1;
-    int idade_valentina = 2;
-    int idade_sofia = 3;
     }
     void loop()
     {
+        int idade_enzo = 1;
+        int idade_valentina = 2;
+        int idade_sofia = 3;
         if(idade_enzo == idade_valentina && idade_enzo != idade_sofia){
             //Se o Enzo e a Valentina tiverem a mesma idade e a Sofia tiver uma idade diferente
             //Neste caso, FALSO AND VERDADEIRO -> Resultado: FALSO
@@ -359,12 +359,12 @@
     #include <Sparki.h>
     void setup()
     {
-    int idade_enzo = 1;
-    int idade_valentina = 2;
-    int idade_sofia = 3;
     }
     void loop()
     {
+        int idade_enzo = 1;
+        int idade_valentina = 2;
+        int idade_sofia = 3;
         sparki.clearLCD();
         if((idade_sofia - idade_valentina) == idade_enzo && (idade_valentina - idade_enzo) == 3) {
             //VERDADEIRO AND FALSO -> Resultado: FALSO
@@ -456,18 +456,19 @@
     Na programação, utilizamos os caracteres ``||'' para simbolizar o OR.
     \\
     \\
+    
     \textsc{Exemplo 1)}
      
      \begin{minted}{cpp}
     #include <Sparki.h>
     void setup()
     {
-    int idade_enzo = 1;
-    int idade_valentina = 2;
-    int idade_sofia = 3;
     }
     void loop()
     {
+        int idade_enzo = 1;
+        int idade_valentina = 2;
+        int idade_sofia = 3;
         if(idade_enzo == idade_valentina || idade_sofia != idade_ valentina) {
         //Neste caso, FALSO OR VERDADEIRO -> Resultado: VERDADEIRO
         sparki.moveBackward();
@@ -501,12 +502,12 @@
     #include <Sparki.h>
     void setup()
     {
-    int idade_enzo = 1;
-    int idade_valentina = 2;
-    int idade_sofia = 3;
     }
     void loop()
     {
+        int idade_enzo = 1;
+        int idade_valentina = 2;
+        int idade_sofia = 3;
         sparki.clearLCD();
         if(idade_valentina != 2 || idade_enzo != 1) {
             //FALSO OR FALSO -> Resultado: FALSO
@@ -568,12 +569,12 @@
     #include <Sparki.h>
     void setup()
     {
-    int idade_enzo = 1;
-    int idade_valentina = 2;
-    int idade_sofia = 3;
     }
     void loop()
     {
+        int idade_enzo = 1;
+        int idade_valentina = 2;
+        int idade_sofia = 3;
         if(!(idade_enzo == 1) {
             //NOT(VERDADEIRO) -> Resultado: FALSO
         } else if(!(idade_valentina == 3)) {
@@ -608,12 +609,12 @@
     #include <Sparki.h>
     void setup()
     {
-    int x = 0;
-    int y = 10;
-    int z = 4;
     }
     void loop()
     {
+        int x = 0;
+        int y = 10;
+        int z = 4;
         sparki.clearLCD();
         y = -2;
         x = y;
@@ -652,8 +653,6 @@
         \textcolor{cyan}{Para não esquecer!}
         \\``Not'' traduzido para o português significa ``não''.
     \end{center}
- 
-\section{Garras e controle remoto}
 
 \section{LCD2: fazendo uma animação na tela do Sparki}
 
@@ -662,13 +661,13 @@
     
     \begin{minted}{cpp}
     #include <Sparki.h>;
-    int x = 0;
     void setup()
     {
     }
-     
+    
     void loop()
     {
+        int x = 0;
         sparki.clearLCD();
         if (x < 127)
           x++;
@@ -688,12 +687,12 @@
     #include <Sparki.h>
     void setup()
     {
-        a = 5
-        b = 10
-        c = a + b
     }
     void loop()
     {
+        a = 5
+        b = 10
+        c = a + b
         sparki.clearLCD();
         if(a != (b - 5)) {
             sparki.print("Hello World");
