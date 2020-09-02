@@ -1,27 +1,340 @@
 \chapter{Variáveis}
 \section*{Introdução}
-    Neste capítulo, iremos abordar um dos conceitos mais importantes para nós: o que são variáveis e o que elas fazem?
-\section{Variável}
-    Provavelmente você já ouviu o seu professor de matemática ou de física falando dessa tal de variável e você também usou muitas variáveis enquanto estudava, mas o que na verdade é essa tal de variável? \par
-    Existem várias maneiras de definir o que é uma variável, por exemplo, quando seu professor de matemática falou que ela era aquela letrinha ``x'' que vinha acompanhada de uma função e que, de fato, varia com o valor de entrada desta função. No nosso caso, vamos olhar para as variáveis de uma maneira um pouquinho diferente. \par
-    Pense em um armário bem organizado, em que todas as roupas são separadas de acordo com o seu tipo, por exemplo, camisas em uma gaveta, calças e shorts em outras e assim por diante. Cada divisória do armário, ou seja, cada gaveta, deverá conter apenas um tipo de roupa específico para que o armário continue organizado. 
-    \textit{Pensei! Mas o que isso tem a ver com o conceito de variáveis?}
-    Tem tudo a ver! Assim como cada gaveta guarda um tipo específico de roupa, cada variável guarda um tipo específico de números ou caracteres, dentre eles: números inteiros, números reais, letras,...
+\paragraph{}
+    Neste capítulo, iremos abordar um dos conceitos mais importantes para nós: variáveis! 
+    Mas afinal, o que são variáveis e o que elas fazem? Isso é o que descobriremos ao longo deste capítulo!
     
+\section{Variável}
+    Provavelmente você já ouviu o seu professor de matemática ou de física falando dessa tal de variável e você também já usou muitas variáveis enquanto estudava, mas o que na verdade é essa tal de variável? \par
+    Existem várias maneiras de definir o que é uma variável, por exemplo, quando seu professor de matemática falou que ela era aquela letrinha ``x'' que vinha acompanhada de uma função e que, de fato, varia com o valor de entrada desta função. No nosso caso, vamos olhar para as variáveis de uma maneira um pouquinho diferente.  \par
+    Pense em um armário bem organizado, em que todas as roupas são separadas de acordo com o seu tipo, por exemplo, camisas em uma gaveta, calças e shorts em outras e assim por diante. Cada divisória do armário, ou seja, cada gaveta, deverá conter apenas um tipo de roupa específico para que o armário continue organizado. \\
+    
+    \textit{Pensei! Mas o que isso tem a ver com o conceito de variáveis?} \par
+    Tem tudo a ver! Assim como cada gaveta guarda um tipo específico de roupa, \textbf{cada variável guarda um tipo específico de números ou caracteres}, dentre eles: números inteiros, números reais, letras,...
+    
+\begin{center}
+    \textbf{Definição} \\
+    Variável é um local reservado na memória para armazenar um tipo de dado. 
+\end{center}
+    
+    \paragraph{}
+    Ao escrever um código, não conhecemos o endereço onde a variável será armazenada. Dessa forma, para fazer referência à variável usamos o nome da mesma e o computador se encarrega do resto. Toda variável deve um nome e esse nome não pode ser iniciado com um número. Além de ter um nome, a variável também precisa ter um tipo. O tipo de dado de uma variável determina o que ela é capaz de armazenar.
 \section{Tipagem}
 
+    \paragraph{}
+	Imagine que você acabou de se mudar para uma casa nova e agora você e sua família precisam tirar toda a mudança de dentro de várias caixas.\\
+	
+	\textit{Pronto, imaginei! Mas ainda não entendi como caixas e variáveis podem ser parecidas.} \par
+    Pode não parecer, mas caixas e variáveis são conceitos muito parecidos! Vamos lá, vou listar algumas características que as duas têm em comum. Ambas são usadas para:
+    
+\begin{itemize}
+\item Guardar coisas;
+\item Separar itens;
+\item Organizar um ambiente.
+\end{itemize}
+
+	Viu como são conceitos parecidos? A principal diferença é que usamos caixas no mundo físico e variáveis usamos no mundo virtual.
+	
+	\paragraph{}
+    Agora que você conseguiu entender a relação entre caixas e variáveis, vamos voltar ao exemplo que pedi para você imaginar. Antes da mudança ter sido transportada para sua nova casa, as coisas da sua antiga casa foram guardadas dentro de caixas que foram nomeadas da seguinte forma: "quarto 1", "quarto 2", "quarto 3",  ``sala'' e "cozinha". 
+    
+    \paragraph{}
+    Você e sua família agora precisam organizar a nova casa, e como toda a mudança foi bem organizada, não deve ser uma tarefa muito difícil, né?! Se vocês quiserem organizar a cozinha, por exemplo, é só procurar as caixas que foram nomeadas como "cozinha". 
+    
+    \paragraph{}
+    Variáveis funcionam exatamente como as caixas da sua mudança. Na linguagem C, \textbf{para cada tipo de informação, um tipo de variável deve utilizada para armazená-la}. Assim como em uma mudança não podemos guardar os utensílios da cozinha na mesma caixa em que guardamos nossas roupas, também não podemos guardar tipos diferentes de informações em uma mesma variável.
+    \\~\\
+    Na linguagem C existem: 
+    
+\begin{itemize}
+\item Variáveis do tipo \lstinline[columns=fixed]{int} que guardam números inteiros: \\
+  \lstinline[columns=fixed]{int idade = 16;}
+\item Variáveis do tipo \lstinline[columns=fixed]{char} que guardam caracteres: \\
+  \lstinline[columns=fixed]{char letra = 'a';}
+\item Variáveis do tipo \lstinline[columns=fixed]{float} que  guardam números com ponto decimal: \\
+  \lstinline[columns=fixed]{float altura = 1.70;}
+\end{itemize}
+
+\begin{center}
+    \textcolor{mydarkblue}{\textbf{Atenção!}}
+    \\ Nada nos impede de armazenar um número inteiro em uma variável do tipo \lstinline[columns=fixed]{float}, afinal, um número inteiro também está dentro do conjunto dos números racionais (números com vírgula).
+\end{center}
+
+\paragraph{}
+Da mesma forma, também podemos guardar um número decimal em uma variável do tipo \lstinline[columns=fixed]{int}, mas nesse caso, apenas o número inteiro será armazenado, a parte decimal será ignorada.
+Por fim, também é possível armazenar números inteiros e números com vírgula em uma variável do tipo \lstinline[columns=fixed]{char}, porém, o valor armazenado será considerado como caractere, e não como número.\\
+
+\textit{Mas como assim? Agora fiquei confuso!  Antes você disse que só era possível guardar valores de acordo com o tipo da variável. Números inteiros em variáveis do tipo int, números com casa decimal em variáveis do tipo float e caracteres em variáveis do tipo char. E agora você me diz que eu posso guardar qualquer coisa dentro de uma variável do tipo char? } \par
+Pois é, meu caro amigo, essa é uma das pegadinhas da linguagem C. Respondendo a sua pergunta, sim, é possível guardar números em uma variável do tipo \lstinline[columns=fixed]{char}, mas isso não significa que você poderá tratar o valor armazenado como um numero. Ou seja, não será possível fazer operações matemáticas com valores armazenados em uma varável do tipo \lstinline[columns=fixed]{char}, porque ela será entendida como um caractere. Mas isso é assunto para a nossa próxima seção.
+
+\section{Declaração de variáveis}
+
+Agora que entendemos que cada variável armazena um tipo de dado, devemos aprender a declarar uma variável de acordo com o tipo dela. Esse é o primeiro passo para utilizarmos uma variável em nosso código, sem ele, a compilação apresentará falhas.
+
+\begin{center}
+    \textcolor{mydarkblue!80!black}{\textbf{Lembrando:}} Compilação é a fase em que o computador olha o seu código e verifica se não existem erros de sintaxe em relação à linguagem que você escreveu.
+\end{center}
+
+\textsc{Exemplo 1)} Neste exemplo iremos declarar uma variável do tipo inteira (\lstinline[columns=fixed]{int}) chamada distancia.
+\begin{lstlisting}[language=C]
+#include <Sparki.h> 
+
+int distancia; //declarando a variavel distancia do tipo int
+
+void setup()
+{
+}
+ 
+void loop()
+{
+    distancia = 10; //atribuindo o valor de 10 (int) para a variavel distancia
+}
+\end{lstlisting}
+
+\textsc{Exemplo 2)} Neste exemplo iremos fazer um código diferente ao anterior mas que faz a mesma coisa.
+\begin{lstlisting}[language=C]
+#include <Sparki.h> 
+
+int distancia=10; //declarando a variavel distancia como int e atribuindo o valor 10 a ela
+
+void setup()
+{
+}
+ 
+void loop()
+{
+}
+\end{lstlisting}
+
+Geralmente, optamos por declarar uma variável fora do \lstinline[columns=fixed]{void setup()} e do \lstinline[columns=fixed]{void loop()}, pois, assim, podemos utilizá-la em qualquer lugar do código, mas também é possível declará-la dentro do \lstinline[columns=fixed]{void setup()} ou do \lstinline[columns=fixed]{void loop()}. 
+
+A diferença é que, caso você declare uma variável dentro do \lstinline[columns=fixed]{void setup()}, apenas poderá utilizá-la dentro do \lstinline[columns=fixed]{void setup()} e, caso você declare uma variável dentro do \lstinline[columns=fixed]{void loop()}, apenas poderá utilizá-la dentro do \lstinline[columns=fixed]{void loop()};
+
 \section{Operações entre variáveis}
+Vejamos alguns exemplos de operações entre números inteiros.
+\\~\\
+\textsc{Exemplo 1)}
+\\~\\
+\begin{lstlisting}[language=C]
+#include <Sparki.h> 
+
+int valor1 = 10;
+int valor2 = 4;
+
+void setup()
+{
+}
+ 
+void loop()
+{
+    sparki.clearLCD();
+ 
+    sparki.print("valor 1 = ");
+    sparki.println(valor1);
+ 
+    sparki.print("valor 2 = ");
+    sparki.println(valor2);
+ 
+    sparki.print("valor1 + valor2 = ");
+    sparki.println(Valor1 + Valor2); 
+
+    sparki.print("valor1 - valor2 = ");
+    sparki.println(Valor1 - Valor2); 
+ 
+    sparki.print("valor1 * valor2 = ");
+    sparki.println(valor1 * valor2); 
+ 
+    sparki.print("valor1 / valor2 = ");
+    sparki.println(valor1 / valor2); 
+ 
+    sparki.updateLCD();
+    delay(1000); 
+}
+\end{lstlisting}
+
+\paragraph{}
+No código acima podemos observar que as variáveis foram declaradas nas \textbf{linhas 1 e 2}. Nas \textbf{linhas 14 e 17} utilizamos a função \lstinline[columns=fixed]{sparki.print} para imprimir os textos \lstinline[columns=fixed]{"valor 1 =" } e  \lstinline[columns=fixed]{"valor 2 =" }. Já nas \textbf{15 e 18} utilizamos a função \lstinline[columns=fixed]{sparki.println} para imprimir os valores das variáveis na tela LCD. 
+
+\paragraph{}
+Para efetuar a operação de adição entre variáveis utilizamos o operador de adição \(+\), como mostrado na \textbf{linha 21}.  Da mesma forma, para efetuar a operação de subtração utilizamos o operador de subtração \(-\), como podemos ver na linha \textbf{24}. Para as operações de multiplicação e divisão, utilizamos os operadores \(*\) e \(/\), conforme as \textbf{linhas 27 e 30}.
+\begin{comment}
+Inserir foto do output do código no LCD
+Melhorar a apresentação visual dos operadores ao longo do texto.
+\end{comment}
+\\~\\
+Você deve ter notado que a ultima linha apresentada na tela LCD não apresenta o resultado correto da operação, né? Afinal, \(10\div4\) é igual a \textbf{2,5} e não \textbf{2}.  
+\\~\\
+\textit{Ah, disso eu lembro! Você disse na seção anterior que variáveis do tipo \lstinline[columns=fixed]{int} não guardam a casa decimal do valor. Então foi por isso que a operação não mostrou o resultado correto.} \\
+Muito bem lembrado! Se a operação fosse entre variáveis do tipo \lstinline[columns=fixed]{float} o valor correto teria sido apresentado na tela LCD.
+
+\paragraph{}
+Ainda existe mais uma forma de efetuar operações de adição e subtração entre uma mesma variável do tipo \lstinline[columns=fixed]{int}. 
+Imagine que desejamos somar \textbf{6} à variável \lstinline[columns=fixed]{distancia} e depois disso imprimiremos o novo valor da variável na tela LCD. Podemos fazer isso de duas maneiras, vejamos o exemplo abaixo.
+\\~\\
+\textsc{Exemplo 2)}
+\begin{lstlisting}[language=C]
+#include <Sparki.h> 
+void setup()
+{
+}
+ 
+void loop()
+{
+    sparki.clearLCD();
+    
+    int distancia=10;
+    sparki.print("distancia=");
+    sparki.println(distancia);
+    distancia=distancia+6;
+    sparki.print("A nova distancia e:");
+    sparki.println(distancia); 
+    
+    distancia=10;
+    sparki.print("distancia=");
+    sparki.println(distancia);
+    distancia+=6;
+    sparki.print("A nova distancia e:");
+    sparki.println(distancia); 
+    sparki.updateLCD();
+    delay(1000); 
+}
+\end{lstlisting}
+
+\paragraph{}
+Observe que é exibido na tela duas vezes o mesmo resultado. Na operação apresentada na \textbf{linha 13} a variável \textbf{distancia} é novamente declarada com um novo valor que consiste no valor anterior (10) somado a 6. Já na operação apresentada na \textbf{linha 20} a variável também é declarada novamente com valor anterior (10) somado a 6. Porém, a operação é efetuada por meio de um ``atalho'' que consiste em \lstinline[columns=fixed]{variavel += numero que desejamos somar}.  
+Da mesma forma, podemos utilizar a mesma estrutura do código acima para fazer a operação de subtração. Apenas precisamos trocar o operador \lstinline[columns=fixed]{+=} pelo operador \lstinline[columns=fixed]{-=}. No caso da subtração, o ``atalho'' consiste em \lstinline[columns=fixed]{variavel -= numero que desejamos subtrair}.
+
+\paragraph{}
+Utilizando um atalho parecido,  podemos adicionar 1 à variável. Vejamos o exemplo.
+\\~\\
+\textsc{Exemplo 3)}
+\begin{lstlisting}[language=C]
+#include <Sparki.h> 
+void setup()
+{
+}
+ 
+void loop()
+{
+    sparki.clearLCD();
+
+    int distancia=10;
+    sparki.print("distancia=");
+    sparki.println(distancia);
+    distancia=distancia+1;
+    sparki.print("A nova distancia é:");
+    sparki.println(distancia); 
+    
+    int distancia=10;
+    sparki.print("distancia=");
+    sparki.println(distancia);
+    distancia++;
+    sparki.print("A nova distancia é:");
+    sparki.println(distancia); 
+    sparki.updateLCD();
+    delay(1000); 
+}
+\end{lstlisting}
+
+\paragraph{}
+O código apresentado acima mostra na tela LCD o mesmo resultado duas vezes, porém, a operação é feita de formas diferentes. Na \textbf{linha 13} a operação é feita da forma convencional. Na \textbf{linha 20}  o ``atalho'' \lstinline[columns=fixed]{variavel++} é utilizado, que consiste em somar 1 ao valor anterior da variável. Ou seja, se a variável declarada armazenasse o valor \textbf{19}, após a utilização do código \lstinline[columns=fixed]{variavel++}, o novo valor da variável seria \textbf{20}.
+
+\paragraph{}
+Assim como no exemplo anterior, também podemos utilizar a mesma estrutura do código acima para fazer a operação que subtrai 1 da variável. Apenas precisamos trocar o operador \lstinline[columns=fixed]{++} pelo operador \lstinline[columns=fixed]{--}. No caso da subtração, o ``atalho'' consiste em \lstinline[columns=fixed]{variavel--}.
+\\~\\
+
+\textsc{Exemplo 4)} Neste exemplo, iremos juntar o nosso conhecimento de LCD com o de variáveis.
+\begin{lstlisting}[language=C]
+#include <Sparki.h>;
+void setup()
+{
+}
+void loop()
+{
+    int var = 10;
+    sparki.clearLCD();
+    sparki.println("Valor da variavel var:");
+    sparki.print(var);
+    sparki.updateLCD();
+    delay(1000);  
+}
+\end{lstlisting}
+
+\paragraph{}
+Note que, quando vamos imprimir o valor que uma variável está armazenando, devemos escrever o nome dela como parâmetro sem as aspas. Mas, se quisermos imprimir apenas os caracteres do jeito que está escrito nos parâmetros, devemos escrever a mensagem desejada entre aspas. Veja o resultado desse exemplo:
+
+\begin{table}[h]
+ \centering
+ {\renewcommand\arraystretch{1.5}
+ \caption{Resultado no LCD}
+ \begin{tabular}{ l }
+  \cline{1-1}  
+    \multicolumn{1}{|p{4cm}|}{Valor da variável var:       10}
+  \\  
+  \hline
+ \end{tabular} }
+\end{table}
 
 \section{Exercícios}
 
-\question{}
+\question{Ajuste o código do Exemplo 1 da seção de ``Operações entre Variáveis'' para que todos os valores das operações sejam apresentados corretamente na tela LCD, ou seja, apresentando também a parte decimal do resultado.}
 
-\question{}
+\begin{center}
+    \line(1,0){450}
+    \vspace{0.2cm}   
+    \line(1,0){450}
+    \vspace{0.2cm}   
+    \line(1,0){450}
+    \vspace{0.2cm}   
+    \line(1,0){450}
+    \vspace{0.2cm}   
+    \line(1,0){450}
+    \vspace{0.4cm} 
+\end{center}
 
-\question{}
+\question{Escreva um código que apresente um contador na tela LCD (contadores são ciclos de repetição de um código, no qual acumulam seu próprio valor, acrescentando 1 a cada execução do programa. Ex: 0 \textbf{+ 1} -> 1 \textbf{+ 1} -> 2 \textbf{+ 1} -> 3 \textbf{+ 1} -> ...).}
 
-\question{}
+\begin{center}
+    \line(1,0){450}
+    \vspace{0.2cm}   
+    \line(1,0){450}
+    \vspace{0.2cm}   
+    \line(1,0){450}
+    \vspace{0.2cm}   
+    \line(1,0){450}
+    \vspace{0.2cm}   
+    \line(1,0){450}
+    \vspace{0.4cm} 
+\end{center}
 
-\question{}
+%\question{Com os conhecimentos adquiridos até aqui, escreva um código que meça a distância entre o \textit{Sparki} e um objeto a frente dele. Utilize esse valor para que o \textit{Sparki} se mova e pare a 10 centímetros do objeto.}
 
-\challenge{\large{Desafio:}}
+%\begin{center}
+%    \line(1,0){450}
+%    \vspace{0.2cm}   
+%    \line(1,0){450}
+%    \vspace{0.2cm}   
+%    \line(1,0){450}
+%    \vspace{0.2cm}   
+%    \line(1,0){450}
+%    \vspace{0.2cm}   
+%    \line(1,0){450}
+%    \vspace{0.4cm} 
+%\end{center}
+
+\challenge{\large{Desafio:}
+Com os conhecimentos adquiridos até aqui, escreva um código que  imprima na tela LCD um cronometro decrescente de 5 a 0. Ao chegar em 0, o \textit{Sparki} deve se movimentar em linha reta por 1 metro. Após isso, o \textit{Sparki} deve parar e aguardar 10 segundos antes de executar a tarefa novamente. }
+
+\begin{center}
+    \line(1,0){450}
+    \vspace{0.2cm}   
+    \line(1,0){450}
+    \vspace{0.2cm}   
+    \line(1,0){450}
+    \vspace{0.2cm}   
+    \line(1,0){450}
+    \vspace{0.2cm}   
+    \line(1,0){450}
+    \vspace{0.4cm} 
+\end{center}
+
